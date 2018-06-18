@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="te:war">
+    <output-path>$PROJECT_DIR$/../te/target</output-path>
+    <root id="archive" name="te-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="te:war exploded" />
+    </root>
+  </artifact>
+</component>
