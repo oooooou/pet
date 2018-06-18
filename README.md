@@ -13,7 +13,7 @@
   使用gson将 自定义返回格式Result <DATE_TYPE> 转化为json  
   
 用户认证  
-  随机数作为token  
+  随机数生产token  
   
 接口  
 
