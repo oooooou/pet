@@ -4,9 +4,9 @@
 
 参考Spring实战（第4版）, 以spring为基础使用java配置  
 
-数据库部分   
-  数据源 实验了jndi配置，jdbc配置，内置的h2，目前使用内置的h2数据库  
-  数据库操作  JDBCTemplate  
+数据库部分     
+  数据源 实验了jndi配置，jdbc配置，内置的h2，目前使用内置的h2数据库    
+  数据库操作  JDBCTemplate    
   
 数据交换  
   使用http协议  
