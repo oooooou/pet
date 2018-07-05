@@ -95,6 +95,7 @@ public class UserController {
     public String findNearBy(@RequestHeader String token){
         Result<java.util.List<User>> result = new Result<List<User>>();
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().serializeNulls().create();
+
         if (Verify.isTokenExisted(token)) {
             Long Id = Verify.getId(token);
             User user=userRepository.findOne(Id);
@@ -116,10 +117,7 @@ public class UserController {
                 result.setData(null);
             }
         }
-        else{
-            result.setCode(202);
-            result.setData(null);
-        }
+
         return gson.toJson(result);
     }
 
@@ -132,6 +130,7 @@ public class UserController {
     public String showFriend(@RequestHeader String token){
         Result<java.util.List<User>> result = new Result<List<User> >();
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().serializeNulls().create();
+
         if (Verify.isTokenExisted(token)) {
             Long  id=Verify.getId(token);
             result.setCode(201);
@@ -142,9 +141,6 @@ public class UserController {
                 listUser.add(userRepository.findOne(friend.getFriendId().longValue()) );
             }
             result.setData(listUser);
-        }else{
-            result.setCode(202);
-            result.setData(null);
         }
         return gson.toJson(result);
     }
