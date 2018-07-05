@@ -33,7 +33,7 @@ public class PetController {
     @ResponseBody
     @RequestMapping(value ="/query",method = RequestMethod.POST)
     public String QuyPet(@RequestHeader String token){
-        Result<List<Pet> > result=new Result<List<Pet>>();
+            Result<List<Pet> > result=new Result<List<Pet>>();
         Gson gson=new GsonBuilder().serializeNulls().create();
         if(Verify.isTokenExisted(token)) {
             Long masterId = Verify.getId(token);
@@ -44,12 +44,7 @@ public class PetController {
             } catch (EmptyResultDataAccessException e) {
                 result.setCode(200);
                 result.setData(null);
-
             }
-        }
-        else {
-            result.setCode(202);
-            result.setData(null);
         }
         return gson.toJson(result);
     }
@@ -62,6 +57,7 @@ public class PetController {
     @RequestMapping(value ="/addPet",method = RequestMethod.POST)
     public String AddPet(@RequestHeader String token,@RequestBody Pet pet) {
         Result<java.util.List<Pet>> result = new Result<List<Pet>>();
+
         Gson gson = new GsonBuilder().serializeNulls().create();
         if (Verify.isTokenExisted(token)) {
             Long masterId = Verify.getId(token);
@@ -74,9 +70,6 @@ public class PetController {
                 result.setCode(203);
                 result.setData(null);
             }
-        } else {
-            result.setCode(202);
-            result.setData(null);
         }
         return gson.toJson(result);
     }
@@ -89,18 +82,14 @@ public class PetController {
     @RequestMapping(value ="/deletePet",method = RequestMethod.POST)
     public String deletePet(@RequestHeader String token,@RequestParam Long id){
         Result<Long> result = new Result<Long>();
+
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().serializeNulls().create();
         if ( Verify.isTokenExisted(token)) {
             Long  masterId=Verify.getId(token);
             Long temp=petRepository.deletePetByMasterIdAndId(masterId,id);
             if(temp==0) result.setCode(203);
             else result.setCode(201);
-        }else{
-            result.setCode(202);
-            result.setData(null);
         }
-        result.setData(null);
         return gson.toJson(result);
     }
-
 }
