@@ -7,13 +7,14 @@ public class Result <DATE_TYPE>{
     private int code;
     @Expose
     DATE_TYPE    data;
-    public Result ( ){};
+    public Result ( ){ this.code=202;this.data=null ;};
     public void setCode(int code){
         this.code=code;
     }
     public void  setData(DATE_TYPE data){
         this.data=data;
     }
+
     public int getCode(){
         return  code;
     }
