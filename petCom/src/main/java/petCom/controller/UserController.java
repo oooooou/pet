@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Controller
+@RestController
 public class UserController {
     private UserRepository userRepository;
 
@@ -47,7 +47,7 @@ public class UserController {
         this.calDistance=calDistance;
 
     }
-    @ResponseBody
+
     @RequestMapping(value ="/test",method = RequestMethod.GET)
     public String test(){
         String str=new String("test");
@@ -61,7 +61,7 @@ public class UserController {
     //登陆
     //参数 json格式 User
     //返回 json格式 Result<>
-    @ResponseBody
+
     @RequestMapping(value = "/login",method= RequestMethod.POST)
     public String login(@RequestBody User user  ){
         Result<String> result=new Result<String>();
@@ -103,7 +103,7 @@ public class UserController {
     //查找附近一千米用户
     //参数 head处添加token
     //返回 json格式 Result<java.util.List<User> >
-    @ResponseBody
+
     @RequestMapping(value ="/findNearBy",method = RequestMethod.POST)
     public String findNearBy(@RequestHeader String token){
         Result<List<User>> result = new Result<List<User>>();
@@ -138,7 +138,7 @@ public class UserController {
     //显示好友
     //参数 head处添加token
     //返回 json格式 Result<java.util.List<User> >
-    @ResponseBody
+
     @RequestMapping(value ="/showFriend",method = RequestMethod.POST)
     public String showFriend(@RequestHeader String token){
         Result<List<User>> result = new Result<List<User> >();
