@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Implementation-Title: te Maven Webapp
-Implementation-Version: 1.0-SNAPSHOT
-Built-By: Insea
-Implementation-Vendor-Id: test3
-Created-By: IntelliJ IDEA
-Build-Jdk: 1.8.0_144
-Main-Class: ${start-class}
-
